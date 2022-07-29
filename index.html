@@ -4866,7 +4866,7 @@ function MineKhan() {
 		let block, index
 		switch(e.button) {
 			case 0:
-				Key.leftMouse = true
+				Key.rightMouse = true
 				break
 			case 1:
 				Key.middleMouse = true
@@ -4881,16 +4881,17 @@ function MineKhan() {
 				}
 				break
 			case 2:
-				Key.rightMouse = true
+				Key.leftMouse = true
 				break
 		}
+//##############################################################################################################################
 		if(screen === "play") {
 			if (doc.pointerLockElement !== canvas) {
 				getPointer()
 				p.lastBreak = Date.now()
 			} else {
 				place = false
-				if(e.button === 0) {
+				if(e.button === 2) {
 					if(Key.control) {
 						place = true
 					} else {
@@ -4898,7 +4899,7 @@ function MineKhan() {
 					}
 				}
 				holding = inventory.hotbar[inventory.hotbarSlot]
-				if(e.button === 2 && holding) {
+				if(e.button === 0 && holding) {
 					place = true
 				}
 				if(place) {
@@ -4915,13 +4916,13 @@ function MineKhan() {
 	canvas.onmouseup = function(e) {
 		switch(e.button) {
 			case 0:
-				Key.leftMouse = false
+				Key.rightMouse = false
 				break
 			case 1:
 				Key.middleMouse = false
 				break
 			case 2:
-				Key.rightMouse = false
+				Key.leftMouse = false
 				break
 		}
 		mouseDown = false
